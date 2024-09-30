@@ -51,7 +51,7 @@ void List::add_item() {
 void List::delete_item(){
     std::cout << "\n\n\n\n";
     std::cout << "*** Delete Item ***\n";
-    std::cout << "Type in a item index number and press enter: ";
+    std::cout << "Type in a item index number and press enter. /n";
 
     if (list.size()){
 
@@ -60,6 +60,10 @@ void List::delete_item(){
             std::cout << i << ":  " << list[i] << "\n";
 
         }
+
+        int choiceNum;
+        std::cin >> choiceNum;
+        list.erase(list.begin() + choiceNum);
 
     } else {
         std::cout << "No items in the list or to delete.\n";
