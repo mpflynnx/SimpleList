@@ -26,7 +26,7 @@ class Database {
 
         std::string name;
 
-        void write(std::vector<std::string> mainlist);
+        void write(std::vector<std::vector<std::string>> mainlist);
 
         std::vector<std::vector<std::string>> read();
 

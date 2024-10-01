@@ -1,6 +1,6 @@
 #include "include/database.hpp"
 
-void Database::write(std::vector<std::string> list) {
+void Database::write(std::vector<std::vector<std::string>> mainList) {
     
 
     std::ofstream db;
@@ -8,10 +8,10 @@ void Database::write(std::vector<std::string> list) {
 
     if (db.is_open()) {
 
-        for(long unsigned int  i=0; i < list.size(); i++){
-
-            db << list[i] << '\n';
-
+        for(long unsigned int  user_index=0; user_index < mainList.size(); user_index++){
+            for (long unsigned int  list_index=0; list_index < mainList[user_index][list_index].size(); list_index++) {
+                db << mainList[user_index][list_index] << '\n';
+            }
         }
 
     } 
@@ -21,7 +21,6 @@ void Database::write(std::vector<std::string> list) {
         std::cout << "Error, cannot open file for writing./n";
 
     }
-
 
     db.close();
 

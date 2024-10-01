@@ -9,7 +9,8 @@ int main(int arg_count, char *args[]){
     if (arg_count > 1) {
 
         simpleList.name = std::string(args[1]);
-        data.read();
+        simpleList.mainList = data.read();
+        simpleList.find_userList();
         simpleList.print_menu();
 
     }
