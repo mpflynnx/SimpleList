@@ -22,12 +22,13 @@ class Database {
         }
 
 
-        std::vector<std::string> list;
+        std::vector<std::vector<std::string>> mainlist;
 
         std::string name;
 
-        void write(std::vector<std::string> list);
-        void read();
+        void write(std::vector<std::string> mainlist);
+
+        std::vector<std::vector<std::string>> read();
 
 
 };
