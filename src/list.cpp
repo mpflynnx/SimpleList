@@ -7,21 +7,25 @@ void List::print_menu() {
     std::cout << " 1 - Print list.\n";
     std::cout << " 2 - Add to list.\n";
     std::cout << " 3 - Delete from list.\n";
-    std::cout << " 4 - Quit.\n";
+    std::cout << " 4 - Save list to database.\n";
+    std::cout << " 5 - Quit.\n";
     std::cout << "\n Enter your choice and press return/enter key.\n";
 
     std::cin >> choice;
 
-    if (choice == 4){
+    if (choice == 5) {
         return;
     }
-    else if (choice == 3){
+    else if (choice == 4) {
+        save_list();
+    }
+    else if (choice == 3) {
         delete_item();
     }
-    else if (choice == 2){
+    else if (choice == 2) {
         add_item();
     }
-    else if (choice == 1){
+    else if (choice == 1) {
         print_list();
     }
     else {
@@ -90,7 +94,7 @@ void List::print_list(){
 
 }
 
-void List::find_userList(){
+bool List::find_userList(){
 
     bool userFound = false;
 
@@ -105,10 +109,27 @@ void List::find_userList(){
             std::cout << "User has been found:" << mainList[user_index][0] << '\n';
 
             list = mainList[user_index];
+            currentUserIndex = user_index;
             userFound = true;
             break;
 
         }
     }
+
+    if (userFound == false) {
+        list.push_back(name);
+        mainList.push_back(list);
+        currentUserIndex = mainList.size() -1;
+    }
+
+    return userFound;
+
+}
+
+void List::save_list() {
+
+    std::cout << "Saving list to database... \n";
+    mainList[currentUserIndex] = list;
+    print_menu();
 
 }
