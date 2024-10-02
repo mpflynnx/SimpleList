@@ -1,6 +1,6 @@
 # SimpleList
 
-A simple multiple user todo list object oriented program written in C++.
+A simple multiple user todo list program written in C++.
 
 # Table of Contents
 - [Database structure example](/docs/database-structure-example.md)
